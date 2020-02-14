@@ -74,6 +74,7 @@ for(bigWig.part in bigWig.part.vec){
     fwrite(out.dt, demo.bedGraph, sep="\t", col.names=FALSE)
     tmp <- paste("bedGraphToBigWig", demo.bedGraph, chrom.sizes.file, demo.bigWig)
     system.or.stop(tmp)
+    system(paste("bigWigToBedGraph", demo.bigWig, "/dev/stdout|head"))
     unlink(demo.bedGraph)
   }
 }
