@@ -60,15 +60,9 @@ for(bigWig.part in bigWig.part.vec){
     bw.dt <- readBigWig(bigWig.file, "chr10", 0, 128616069)
     out.dt <- data.table(chrom="chr10", bw.dt)
     demo.bedGraph <- sub("bigWig", "bedGraph", demo.bigWig)
-    fwrite(out.dt, demo.bedGraph, sep="\t", col.names=FALSE)
-    print("\n")
-    print("\n")print("\n")
-    
+    fwrite(out.dt, demo.bedGraph, sep="\t", col.names=FALSE) 
     system.or.stop(
       paste("bedGraphToBigWig", demo.bedGraph, chrom.sizes.file, demo.bigWig), verbose=1)
-    print("\n")
-    print("\n")
-    print("\n")
     unlink(demo.bedGraph)
   }
 }
