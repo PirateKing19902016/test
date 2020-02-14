@@ -61,6 +61,8 @@ for(bigWig.part in bigWig.part.vec){
     out.dt <- data.table(chrom="chr10", bw.dt)
     demo.bedGraph <- sub("bigWig", "bedGraph", demo.bigWig)
     fwrite(out.dt, demo.bedGraph, sep="\t", col.names=FALSE)
+    print(Sys.getenv('PATH'))
+    system.or.stop("ipconfig",verbose=1)
     system.or.stop(
       paste("bedGraphToBigWig", normalizePath(demo.bedGraph), normalizePath(chrom.sizes.file), normalizePath(demo.bigWig)), verbose=1)
     unlink(demo.bedGraph)
